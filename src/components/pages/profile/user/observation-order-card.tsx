@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const ObservationOrderCard: FC<Props> = ({
-  observation: { description, scheduledTime, name, properties },
+  observation: { description, scheduledTime, name, properties, equipment },
 }) => {
   return (
     <div>
@@ -22,6 +22,9 @@ export const ObservationOrderCard: FC<Props> = ({
         <p className='mb-4 flex items-center text-xs text-gray-500'>
           Час проведення: {formatDateTime(scheduledTime)}
         </p>
+        {equipment?.name && (
+          <p className='mt-4 font-semibold'>Телескоп: {equipment?.name}</p>
+        )}
       </li>
     </div>
   );

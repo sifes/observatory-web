@@ -100,7 +100,7 @@ export const AddObservationForm: FC<Props> = ({}) => {
               name='scheduledTime'
               render={({ field }) => (
                 <FormItem className='flex flex-col'>
-                  <FormLabel>Date of birth</FormLabel>
+                  <FormLabel>Час проведення</FormLabel>
                   <DateTimePicker form={form} name='scheduledTime' />
                 </FormItem>
               )}

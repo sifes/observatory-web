@@ -1,3 +1,5 @@
+import { Equipment } from '../equipment/equipment-api.types';
+
 export interface ObservationDto {
   name: string;
   scheduledTime: Date;
@@ -13,4 +15,5 @@ export interface Observation {
   scheduledTime: string;
   spaceObjectId: number;
   equipmentId: number;
+  equipment: Equipment;
 }
