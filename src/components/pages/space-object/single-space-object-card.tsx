@@ -10,6 +10,8 @@ import { MapPinIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
+import { AddResearchFormDialog } from './add-research-form-dialog';
+import { researchApi } from '@/app/api/research/research-api';
 
 interface Props {
   spaceObject: SpaceObject;
@@ -47,15 +49,34 @@ export const SingleSpaceObjectCard: FC<Props> = ({
         <>
           <h4 className='mt-4 font-semibold'>Дослідження:</h4>
           {researches?.map((research) => (
-            <div key={research.id}>
+            <div className='flex items-center' key={research.id}>
               <h4>{research.text}</h4>
+
+              {isAdmin && (
+                <DeleteDialog
+                  onConfirm={async () => {
+                    try {
+                      await researchApi.deleteResearch(research.id);
+                      await qc.refetchQueries({
+                        queryKey: ['space-objects-by-id', id],
+                      });
+                      toastSuccess('Дослідження успішно видалено');
+                    } catch (error) {
+                      toastError(error);
+                    }
+                  }}
+                  title='дослідження'
+                />
+              )}
             </div>
           ))}
         </>
       )}
 
       {isAdmin && (
-        <div className='mt-2'>
+        <div className='mt-2 flex items-center gap-4'>
+          <AddResearchFormDialog />
+
           <DeleteDialog
             variant='button'
             onConfirm={async () => {

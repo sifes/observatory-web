@@ -15,6 +15,7 @@ const Page: FC<Props> = async ({ params: { spaceObjectId } }) => {
   const { data } = await qc.fetchQuery({
     queryKey: ['space-objects-by-id', spaceObjectId],
     queryFn: () => spaceObjectApi.getSpaceObjectById(spaceObjectId),
+    gcTime: 0,
   });
 
   return (

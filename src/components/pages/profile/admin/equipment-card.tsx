@@ -38,7 +38,7 @@ export const EquipmentCard: FC<Props> = ({
               toastError(error);
             }
           }}
-          title='цей космічний об`єкт'
+          title='цей телескоп'
         />
       </li>
     </div>

@@ -28,7 +28,7 @@ export const DeleteDialog: FC<DeleteDialogProps> = ({
   onConfirm,
   name,
   variant = 'icon',
-  buttonLabel = 'Delete',
+  buttonLabel = 'Видалити',
   buttonVariant = 'primary',
 }) => {
   return (
