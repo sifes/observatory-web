@@ -3,7 +3,6 @@ export interface ObservationDto {
   scheduledTime: Date;
   spaceObjectId: number;
   equipmentId: number;
-  userId: number;
 }
 
 export interface Observation {
