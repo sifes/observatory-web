@@ -15,7 +15,7 @@ const AuthStateWrapper = dynamic(
 
 export const Header = () => {
   return (
-    <header className='bg-background-darker fixed z-10 my-2 w-full'>
+    <header className='fixed z-10 w-full border-b border-gray-200 bg-white py-2 shadow-md'>
       <div className='mx-auto flex h-full max-w-[1280px] items-center justify-between gap-4 px-4 py-1'>
         <Link
           href='/'
