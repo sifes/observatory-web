@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const ObservationCard: FC<Props> = ({
-  observation: { description, name, properties, id, scheduledTime },
+  observation: { description, name, properties, id, scheduledTime, equipment },
 }) => {
   const { push } = useRouter();
   const { toastError, toastSuccess } = useCommonToast();
@@ -29,7 +29,13 @@ export const ObservationCard: FC<Props> = ({
         <p className='mb-2 text-sm text-gray-600'>
           Час спостереження: {formatDateTime(scheduledTime)}
         </p>
-        <p className='my-4 font-semibold'>Характеристики: {properties}</p>
+        {properties && (
+          <p className='my-4 font-semibold'>Характеристики: {properties}</p>
+        )}
+
+        {equipment?.name && (
+          <p className='mb-4 font-semibold'>Телескоп: {equipment?.name}</p>
+        )}
         <DeleteDialog
           variant='button'
           onConfirm={async () => {
